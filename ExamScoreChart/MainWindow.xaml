@@ -24,7 +24,7 @@
                         <Setter Property="Stroke" Value="Transparent"/>
                     </Style>
                     <DataTemplate x:Key="AxisLabel">
-                        <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Vertical" Width="130">
                             <TextBlock Text="{Binding LabelContent}" FontSize="13"
                                        TextAlignment="Right"
                                        Loaded="TextBlock_Loaded" TextWrapping="Wrap"/>
@@ -37,7 +37,7 @@
                 <StackPanel Orientation="Vertical">
                     <TextBlock HorizontalAlignment="Left" Text="GPT performance on academic and professional exams."
                                    FontSize="22" FontWeight="Bold"/>
-                    <TextBlock Text="It reports GPT-4’s final exam score graded according to examspecific rubrics and the percentile of test-takers achieving GPT-4’s score."
+                    <TextBlock Text="It reports GPT-4’s final exam score graded according to exam specific rubrics and the percentile of test-takers achieving GPT-4’s score."
                                    HorizontalAlignment="Left" FontSize="15" />
                 </StackPanel>
             </sync:SfChart.Header>
@@ -64,7 +64,7 @@
                 </sync:NumericalAxis>
             </sync:SfChart.SecondaryAxis>
 
-            <sync:RangeColumnSeries ItemsSource="{Binding Data}" XBindingPath="ExamName"
+            <sync:RangeColumnSeries ItemsSource="{Binding Data}" XBindingPath="MainString"
                                     High="ChatGPT4_0" Low="ChatGPT3_5" IsTransposed="True"
                                     SegmentSpacing="0.9" VisibilityOnLegend="Collapsed">
                 <sync:RangeColumnSeries.Interior>
@@ -75,7 +75,7 @@
                 </sync:RangeColumnSeries.Interior>
             </sync:RangeColumnSeries>
 
-            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="ExamName" Interior="#0047F0"
+            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="MainString" Interior="#0047F0"
                                 ScatterHeight="40" YBindingPath="ChatGPT4_0" IsTransposed="True" Label="ChatGPT-4.0"
                                 ScatterWidth="40">
                 <sync:ScatterSeries.AdornmentsInfo>
@@ -84,7 +84,7 @@
                 </sync:ScatterSeries.AdornmentsInfo>
             </sync:ScatterSeries>
 
-            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="ExamName" Interior="#00ff8f"
+            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="MainString" Interior="#00ff8f"
                                 YBindingPath="ChatGPT3_5" IsTransposed="True" Label="ChatGPT-3.5"
                                 ScatterHeight="27" ScatterWidth="27">
                 <sync:ScatterSeries.AdornmentsInfo>
