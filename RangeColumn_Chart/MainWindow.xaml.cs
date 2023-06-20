@@ -1,5 +1,4 @@
 ﻿using Syncfusion.UI.Xaml.Charts;
-using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -27,19 +26,20 @@ namespace ExamScoreChart
 
         private void TextBlock_Loaded(object sender, RoutedEventArgs e)
         {
-            var textBlock = sender as TextBlock;
-            var text = textBlock.Text;
-            var lines = text.Split(new[] { '\r', '\n' });
-
-            if (lines.Length > 1)
+            if (sender is TextBlock textBlock)
             {
-                var lastLine = lines[lines.Length - 1];
-                var lastLineRun = new Run(lastLine) { Foreground = Brushes.Gray };
-                var initialTexts = text.Substring(0, text.Length - lastLine.Length);
-                var initialTextsRun = new Run(initialTexts) { FontWeight = FontWeights.Medium, Foreground = Brushes.Black };
-                textBlock.Inlines.Clear();
-                textBlock.Inlines.Add(initialTextsRun);
-                textBlock.Inlines.Add(lastLineRun);
+                var text = textBlock.Text;
+                var lines = text.Split(new[] { '\r', '\n' });
+                if (lines.Length > 1)
+                {
+                    var lastLine = lines[lines.Length - 1];
+                    var lastLineRun = new Run(lastLine) { Foreground = Brushes.Gray };
+                    var initialTexts = text.Substring(0, text.Length - lastLine.Length);
+                    var initialTextsRun = new Run(initialTexts) { FontWeight = FontWeights.Medium, Foreground = Brushes.Black };
+                    textBlock.Inlines.Clear();
+                    textBlock.Inlines.Add(initialTextsRun);
+                    textBlock.Inlines.Add(lastLineRun);
+                }
             }
         }
     }
