@@ -7,7 +7,7 @@
         mc:Ignorable="d" Title="MainWindow" 
         xmlns:sync="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF">
 
-    <Border BorderBrush="black" BorderThickness="2" CornerRadius="5" Margin="15" Width="1100">
+    <Border BorderBrush="black" BorderThickness="2" CornerRadius="5" Margin="5" Width="1200">
 
         <Border.DataContext>
             <local:ViewModel x:Name="vm"/>
@@ -34,8 +34,8 @@
             </sync:SfChart.Resources>
 
             <sync:SfChart.Header>
-                <StackPanel Orientation="Vertical">
-                    <TextBlock HorizontalAlignment="Left" Text="GPT performance on academic and professional exams."
+                <StackPanel Orientation="Vertical" Margin="0,0,0,15">
+                    <TextBlock HorizontalAlignment="Left" Text="Chat GPT's performance on academic and professional exams."
                                    FontSize="22" FontWeight="Bold"/>
                     <TextBlock Text="It reports GPT-4’s final exam score graded according to exam specific rubrics and the percentile of test-takers achieving GPT-4’s score."
                                    HorizontalAlignment="Left" FontSize="15" />
@@ -43,7 +43,7 @@
             </sync:SfChart.Header>
 
             <sync:SfChart.Legend>
-                <sync:ChartLegend IconHeight="15" IconWidth="15" FontSize="13"/>
+                <sync:ChartLegend IconHeight="15" IconWidth="15" FontSize="13" DockPosition="Bottom"/>
             </sync:SfChart.Legend>
 
             <sync:SfChart.PrimaryAxis>
@@ -54,7 +54,7 @@
             </sync:SfChart.PrimaryAxis>
 
             <sync:SfChart.SecondaryAxis>
-                <sync:NumericalAxis OpposedPosition="True" Interval="10" PlotOffset="15"
+                <sync:NumericalAxis OpposedPosition="True" Interval="10" EdgeLabelsDrawingMode="Fit"
                                         LabelCreated="NumericalAxis_LabelCreated" 
                                         Minimum="0" Maximum="100" AxisLineStyle="{StaticResource axisStyle}"
                                         TickLineSize="0" MajorGridLineStyle="{StaticResource lineStyle}" >
@@ -64,8 +64,8 @@
                 </sync:NumericalAxis>
             </sync:SfChart.SecondaryAxis>
 
-            <sync:RangeColumnSeries ItemsSource="{Binding Data}" XBindingPath="MainString"
-                                    High="ChatGPT4_0" Low="ChatGPT3_5" IsTransposed="True"
+            <sync:RangeColumnSeries ItemsSource="{Binding Data}" XBindingPath="ExamName"
+                                    High="ChatGPT_4" Low="ChatGPT_35" IsTransposed="True"
                                     SegmentSpacing="0.9" VisibilityOnLegend="Collapsed">
                 <sync:RangeColumnSeries.Interior>
                     <LinearGradientBrush>
@@ -75,8 +75,8 @@
                 </sync:RangeColumnSeries.Interior>
             </sync:RangeColumnSeries>
 
-            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="MainString" Interior="#0047F0"
-                                ScatterHeight="40" YBindingPath="ChatGPT4_0" IsTransposed="True" Label="ChatGPT-4.0"
+            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="ExamName" Interior="#0047F0"
+                                ScatterHeight="40" YBindingPath="ChatGPT_4" IsTransposed="True" Label="ChatGPT-4.0"
                                 ScatterWidth="40">
                 <sync:ScatterSeries.AdornmentsInfo>
                     <sync:ChartAdornmentInfo ShowLabel="True" SegmentLabelContent="YValue"
@@ -84,8 +84,8 @@
                 </sync:ScatterSeries.AdornmentsInfo>
             </sync:ScatterSeries>
 
-            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="MainString" Interior="#00ff8f"
-                                YBindingPath="ChatGPT3_5" IsTransposed="True" Label="ChatGPT-3.5"
+            <sync:ScatterSeries ItemsSource="{Binding Data}" XBindingPath="ExamName" Interior="#00ff8f"
+                                YBindingPath="ChatGPT_35" IsTransposed="True" Label="ChatGPT-3.5"
                                 ScatterHeight="27" ScatterWidth="27">
                 <sync:ScatterSeries.AdornmentsInfo>
                     <sync:ChartAdornmentInfo ShowLabel="True" SegmentLabelContent="YValue"
