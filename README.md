@@ -5,4 +5,4 @@ To benchmark the capabilities of ChatGPT, OpenAI simulated test runs of various 
 
 ![RangeColumn_Chart](https://github.com/SyncfusionExamples/Creating-a-RangeColumn-Chart-showing-ChatGPT-s-performance-in-competitive-exams/assets/102642528/2b9e1446-6cf7-4a2e-b660-427e41389637)
 
-For the Step by step procedure refer the blog page.
+For the Step by step procedure refer the blog : [Creating a WPF Range Column Chart to Visualize ChatGPT’s Performance in Competitive Exams](https://www.syncfusion.com/blogs/post/wpf-range-column-chart-visualize-chatgpt-performance.aspx)
